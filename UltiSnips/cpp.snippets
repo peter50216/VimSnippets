@@ -1,0 +1,25 @@
+global !p
+def loop_var_type(v):
+	if 'size()' in v:
+		return 'size_t'
+	else:
+		return 'int'
+endglobal
+
+snippet for "for loop"
+for (`!p snip.rv = loop_var_type(t[2])` ${1:i} = 0; $1 < ${2:n}; $1++) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet fors "single line for loop"
+for (`!p snip.rv = loop_var_type(t[2])` ${1:i} = 0; $1 < ${2:n}; $1++) ${0:${VISUAL}}
+endsnippet
+
+snippet PII "pair of ints" w
+pair<int, int>
+endsnippet
+
+snippet ALL "begin to end" w
+${1:v}.begin(), $1.end()
+endsnippet
